@@ -13,25 +13,26 @@
       const mark = prompt("Enter your marks");
       const res = document.getElementById("res");
 
-      let grade = "";
-      if (mark >= 80) {
-        grade = "A+";
-      } else if (mark >= 70 && mark <= 79) {
-        grade = "A";
-      } else if (mark >= 60 && mark <= 69) {
-        grade = "A-";
-      } else if (mark >= 50 && mark <= 59) {
-        grade = "B";
-      } else if (mark >= 40 && mark <= 49) {
-        grade = "C";
-      } else if (mark >= 33 && mark <= 39) {
-        grade = "D";
-      } else if (mark >= 0 && mark <= 32) {
-        grade = "F";
+      if (isNaN(mark) || mark < 0 || mark > 100) {
+        res.innerText = "Input is Invalid";
       } else {
-        grade = "Invalid";
+        let grade;
+        if (mark < 30) {
+          grade = "F";
+        } else if (mark < 40) {
+          grade = "C";
+        } else if (mark < 60) {
+          grade = "B";
+        } else if (mark < 70) {
+          grade = "A-";
+        } else if (mark < 80) {
+          grade = "A";
+        } else {
+          grade = "A+";
+        }
+
+        res.innerText = `Your grade is: ${grade}`;
       }
-      res.innerText = "Your grade is: " + grade;
     </script>
   </body>
 </html>
