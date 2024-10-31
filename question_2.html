@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Even Or Odd</title>
+  </head>
+  <body>
+    <h1>Problem - 2</h1>
+    <h2>Find Even or Odd</h2>
+    <h2 id="res" style="color: crimson"></h2>
+    <script type="text/javascript">
+      const num = prompt("Enter a Number");
+      const res = document.getElementById("res");
+
+      if (num % 2 === 0) {
+        console.log("The Number is Even");
+        res.innerText = "The Number is Even";
+      } else {
+        console.log("The Number is Odd");
+        res.innerText = "The Number is Odd";
+      }
+    </script>
+  </body>
+</html>

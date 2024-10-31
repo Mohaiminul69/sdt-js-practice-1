@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leap Year Or Not</title>
+  </head>
+  <body>
+    <h1>Problem - 4</h1>
+    <h2>Leap Year Or Not</h2>
+    <h2 id="res" style="color: crimson"></h2>
+
+    <script type="text/javascript">
+      const year = prompt("Enter a Number");
+      const res = document.getElementById("res");
+
+      if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+        console.log(year + " is a Leap Year.");
+        res.innerText = year + " is a Leap Year.";
+      } else {
+        res.innerText = year + " is not a Leap Year.";
+        console.log(year + " is not a Leap Year.");
+      }
+    </script>
+  </body>
+</html>
