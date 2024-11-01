@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show Savings</title>
+    <style>
+      .input-group {
+        margin: 10px 0;
+      }
+      .input-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input[type="text"] {
+        width: 300px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      button {
+        padding: 10px;
+        background-color: black;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #res {
+        margin-top: 20px;
+        font-weight: bold;
+        color: crimson;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Problem - 9</h1>
+    <h2>Savings Calculation</h2>
+    <div class="input-group">
+      <label for="inputArray"
+        >Enter payments as numbers separated by commas:</label
+      >
+      <input
+        type="text"
+        id="inputArray"
+        placeholder="e.g., 400, 500, 600, 700"
+      />
+    </div>
+    <div class="input-group">
+      <label for="livingCost">Enter Living Cost:</label>
+      <input type="text" id="livingCost" placeholder="e.g., 2000" />
+    </div>
+    <button type="button" onclick="getSavingsAmount()">Check Savings</button>
+    <h2 id="res"></h2>
+
+    <script type="text/javascript">
+      const getSavingsAmount = () => {
+        const arrInput = document.getElementById("inputArray").value;
+        const payments = arrInput
+          .split(",")
+          .map((item) => parseFloat(item.trim()));
+        const livingCost = parseFloat(
+          document.getElementById("livingCost").value.trim()
+        );
+        const res = document.getElementById("res");
+        let sum = 0;
+
+        if (isNaN(livingCost) || payments.some(isNaN)) {
+          res.innerText = "Invalid Input. Please enter numbers only.";
+          return;
+        }
+
+        payments.forEach((payment) => {
+          sum += payment >= 3000 ? payment * 0.8 : payment;
+        });
+
+        const savings = sum - livingCost;
+        res.innerText =
+          savings >= 0 ? `Savings: ${savings.toFixed(2)}` : "Earn More";
+      };
+    </script>
+  </body>
+</html>
